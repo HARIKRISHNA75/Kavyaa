@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KAVYA 3D Workspace</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="page-shell">
+        <div class="ambient ambient-one"></div>
+        <div class="ambient ambient-two"></div>
+        <div class="grid-glow"></div>
+
+        <header class="topbar container">
+            <div class="brand-wrap">
+                <div class="brand-mark">HARI</div>
+                <div>
+                    <div class="brand-name">KAVYA-PROJECT</div>
+                    <div class="brand-tag">3D Knowledge Engine</div>
+                </div>
+            </div>
+            <nav class="topnav">
+                <span>Multilingual</span>
+                <span>Secure</span>
+                <span>Realtime</span>
+            </nav>
+        </header>
+
+        <main class="container hero-layout">
+            <section class="hero-copy tilt-card">
+                <p class="eyebrow">Document intelligence, reimagined</p>
+                <h1>Transform scattered documents into grounded answers.</h1>
+                <p class="subtitle">Upload PDFs, DOCX files, and TXT notes. Ask a question in your language to get a concise answer grounded in the uploaded content.</p>
+
+                <div class="cta-row">
+                    <a href="#workspace" class="btn primary">Launch workspace</a>
+                    <button type="button" class="btn secondary">View demo</button>
+                </div>
+
+                <ul class="stats-list">
+                    <li><strong>5x</strong><span>faster lookup</span></li>
+                    <li><strong>12+</strong><span>languages</span></li>
+                    <li><strong>100%</strong><span>source-aware</span></li>
+                </ul>
+            </section>
+
+            <div class="hero-visual tilt-card" aria-hidden="true">
+                <div class="orb orb-one"></div>
+                <div class="orb orb-two"></div>
+                <div class="stack-card card-primary">
+                    <span class="mini-label">Knowledge graph</span>
+                    <strong>RAG</strong>
+                    <small>Context + retrieval + generation</small>
+                </div>
+                <div class="stack-card card-secondary">
+                    <span class="mini-label">Active dataset</span>
+                    <strong>17 documents</strong>
+                    <small>Indexed and ready</small>
+                </div>
+                <div class="ring"></div>
+            </div>
+        </main>
+
+        <div id="workspace" class="container workspace-grid">
+            <section class="card tilt-card">
+                <div class="card-header">
+                    <span class="step-badge">01</span>
+                    <h2>Upload Documents</h2>
+                </div>
+                <div class="upload-area" id="uploadArea">
+                    <input type="file" id="fileInput" multiple accept=".pdf,.docx,.txt">
+                    <p>Drag & drop files here or <label for="fileInput" class="link">browse</label></p>
+                    <p class="hint">Supported: PDF, DOCX, TXT (multiple files allowed)</p>
+                </div>
+                <div id="fileList" class="file-list"></div>
+                <button id="uploadBtn" class="btn primary" disabled>Upload & Process</button>
+                <div id="uploadStatus" class="status"></div>
+            </section>
+
+            <section class="card tilt-card">
+                <div class="card-header">
+                    <span class="step-badge">02</span>
+                    <h2>Ask a Question</h2>
+                </div>
+                <div class="form-group">
+                    <label for="question">Your question</label>
+                    <textarea id="question" rows="3" placeholder="e.g. What is the definition of...?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="language">Answer language</label>
+                    <select id="language">
+                        <option value="en">English</option>
+                        <option value="te">Telugu (తెలుగు)</option>
+                        <option value="ta">Tamil (தமிழ்)</option>
+                        <option value="ml">Malayalam (മലയാളം)</option>
+                        <option value="hi">Hindi (हिन्दी)</option>
+                        <option value="kn">Kannada (ಕನ್ನಡ)</option>
+                        <option value="ur">Urdu (اردو)</option>
+                        <option value="es">Spanish</option>
+                        <option value="fr">French</option>
+                        <option value="de">German</option>
+                        <option value="zh">Chinese (中文)</option>
+                        <option value="ar">Arabic (العربية)</option>
+                    </select>
+                </div>
+
+                <button id="runBtn" class="btn primary" disabled>Run Retrieval</button>
+                <div id="queryStatus" class="status"></div>
+            </section>
+
+            <section class="card tilt-card answer-panel" id="answerSection" style="display:none;">
+                <div class="card-header">
+                    <span class="step-badge">03</span>
+                    <h2>Answer</h2>
+                </div>
+                <div id="answerBox" class="answer-box"></div>
+            </section>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
